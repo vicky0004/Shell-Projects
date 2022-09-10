@@ -2,8 +2,8 @@ navBar(){
 clear
 echo "[e]-exit     [h]-Home	[b]-Back	[fe]-file execute	[fr]-file read"
 printf "\n"
-echo "[n]-create file		[w]-write	[df]-delete file"
-echo "x___________________________________________________x____________________________________________________x"
+echo "[n]-new file		[w]-write	[df]-delete file	[nd]-new Directory"
+echo "______________________________________________________________________________________________________"
 }
 readFile(){
 	printf "\n"
@@ -77,6 +77,14 @@ do
 		readFile
 		read file
 		vim "$file"
+		continue
+	fi
+	if [ "$folder" = "nd" ]
+	then
+		printf "\n"
+		echo -n "Enter folder name: "
+		read file
+		mkdir "$file"
 		continue
 	fi
 
